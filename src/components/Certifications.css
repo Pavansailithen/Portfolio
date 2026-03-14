@@ -1,0 +1,62 @@
+.cert-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.cert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2.5rem;
+    transition: var(--transition);
+}
+
+.cert-item:hover {
+    transform: translateX(10px);
+    border-left: 4px solid var(--accent-primary);
+    background: rgba(42, 42, 62, 0.8);
+}
+
+.cert-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.cert-issuer {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.cert-date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.cert-badge-wrapper {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.cert-icon-fallback {
+    font-size: 2.5rem;
+}
+
+@media (max-width: 600px) {
+    .cert-item {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .cert-item:hover {
+        transform: translateY(-5px);
+        border-left: 1px solid var(--glass-border);
+        border-bottom: 4px solid var(--accent-primary);
+    }
+}

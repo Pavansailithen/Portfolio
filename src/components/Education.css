@@ -1,0 +1,66 @@
+.education-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.edu-item {
+    padding: 2.5rem;
+    transition: var(--transition);
+    border-left: 4px solid transparent;
+}
+
+.edu-item:hover {
+    transform: translateY(-5px);
+    border-left-color: var(--accent-primary);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.edu-header h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.edu-date {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.edu-school {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.edu-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.edu-details p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.edu-details strong {
+    color: var(--text-primary);
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .edu-item {
+        padding: 1.5rem;
+    }
+}
