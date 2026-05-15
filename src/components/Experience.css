@@ -64,6 +64,12 @@
     color: var(--text-primary);
 }
 
+.timeline-location {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: normal;
+}
+
 .timeline-date {
     font-weight: 600;
     font-size: 0.95rem;
@@ -76,6 +82,19 @@
     margin-bottom: 1.5rem;
     font-weight: 500;
 }
+
+.live-demo-link {
+    color: var(--accent-primary);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.live-demo-link:hover {
+    color: #fff;
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
 
 .timeline-list {
     list-style: none;

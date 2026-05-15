@@ -9,22 +9,13 @@ const Education = () => {
                 <div className="education-timeline">
                     <div className="edu-item section-glass animate-fade-in">
                         <div className="edu-header">
-                            <h3>Bachelor of Engineering & Technology</h3>
-                            <span className="edu-date text-gradient">Nov. 2022 – Apr. 2026</span>
+                            <h3>Bachelor of Technology <span className="edu-major">— Computer Science & Engineering (Cybersecurity)</span></h3>
+                            <span className="edu-date text-gradient">Aug 2022 – April 2026 (Graduated)</span>
                         </div>
-                        <p className="edu-school">KIET Group of Institutions · Kakinada, AP</p>
+                        <p className="edu-school">KIET Group of Institutions · Kakinada, Andhra Pradesh</p>
                         <div className="edu-details">
-                            <p><strong>Specialization:</strong> Computer Science with Cybersecurity</p>
-                            <p><strong>Coursework:</strong> Network Security Fundamentals, Vulnerability Assessment, Risk Management, Cloud Security</p>
+                            <p><strong>GPA:</strong> 7.51 / 10.0</p>
                         </div>
-                    </div>
-
-                    <div className="edu-item section-glass animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                        <div className="edu-header">
-                            <h3>Intermediate (MPC)</h3>
-                            <span className="edu-date text-gradient">Jun. 2020 – May 2022</span>
-                        </div>
-                        <p className="edu-school">Narayana Junior College · Vijayawada, AP</p>
                     </div>
                 </div>
             </div>
@@ -33,3 +24,4 @@ const Education = () => {
 };
 
 export default Education;
+

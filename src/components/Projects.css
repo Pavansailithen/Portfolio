@@ -49,11 +49,19 @@
     margin-bottom: 1rem;
 }
 
-.project-description {
+.project-bullets {
     color: var(--text-secondary);
     margin-bottom: 2rem;
     flex-grow: 1;
+    padding-left: 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
+
+.project-bullet-item {
+    margin-bottom: 0.8rem;
+}
+
 
 .project-tech-stack {
     display: flex;

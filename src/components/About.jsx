@@ -8,12 +8,12 @@ const About = () => {
 
                 <div className="about-content section-glass">
                     <div className="about-text">
-                        <h3 className="text-gradient">Innovating at the Intersection of Cloud & Security</h3>
+                        <h3 className="text-gradient">Innovating at the Intersection of AI, Cloud & Security</h3>
                         <p>
-                            I am a final-year B.Tech student with a strong passion for building resilient software systems and securing cloud infrastructures. With hands-on experience in modern web development and deep knowledge of cloud architectures, I aim to bridge the gap between fast deployment and robust security.
+                            I am a B.Tech Graduate in Computer Science & Engineering (Cybersecurity) with a strong passion for building resilient, intelligent software systems. With hands-on experience in developing scalable AI pipelines, full-stack applications, and managing secure cloud environments, I bridge the gap between sophisticated deployment and robust security.
                         </p>
                         <p>
-                            Whether it's configuring a CI/CD pipeline, pentesting a web application, or developing a responsive frontend in React, I thrive on solving complex technical challenges.
+                            Whether it's engineering high-performance APIs with FastAPI, setting up agentic LLM workflows, or automating infrastructure security, I thrive on solving complex architectural challenges.
                         </p>
 
                         <div className="about-stats">
@@ -22,11 +22,11 @@ const About = () => {
                                 <span>Years coding</span>
                             </div>
                             <div className="stat-card">
-                                <h4 className="text-gradient">15+</h4>
+                                <h4 className="text-gradient">10+</h4>
                                 <span>Projects Built</span>
                             </div>
                             <div className="stat-card">
-                                <h4 className="text-gradient">5</h4>
+                                <h4 className="text-gradient">5+</h4>
                                 <span>Cloud Certs</span>
                             </div>
                         </div>
@@ -47,3 +47,4 @@ const About = () => {
 };
 
 export default About;
+

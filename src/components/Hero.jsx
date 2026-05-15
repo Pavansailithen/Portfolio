@@ -24,7 +24,7 @@ const Hero = () => {
                         />
                     </h1>
                     <p className="hero-subtitle">
-                        A B.Tech student specializing in Computer Science with Cybersecurity. I design secure, scalable architectures and develop high-performance applications.
+                        B.Tech Graduate in Computer Science & Engineering (Cybersecurity). I design secure, scalable architectures and develop high-performance AI & cloud applications.
                     </p>
                     <div className="hero-cta">
                         <a href="#projects" className="button-primary">View My Work</a>
@@ -34,10 +34,10 @@ const Hero = () => {
                         <a href="#contact" className="button-outline">Contact Me</a>
                     </div>
                     <div className="hero-socials animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub">
+                        <a href="https://github.com/Pavansailithen" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub">
                             <Github size={24} />
                         </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
+                        <a href="https://linkedin.com/in/lithinpavansai" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
                             <Linkedin size={24} />
                         </a>
                     </div>
@@ -50,7 +50,7 @@ const Hero = () => {
                         <div className="orbit orbit-2"></div>
                         <div className="floating-badge badge-1">🛡️ Security</div>
                         <div className="floating-badge badge-2">☁️ Cloud</div>
-                        <div className="floating-badge badge-3">💻 Dev</div>
+                        <div className="floating-badge badge-3">🤖 AI / ML</div>
                     </div>
                 </div>
             </div>
@@ -59,3 +59,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

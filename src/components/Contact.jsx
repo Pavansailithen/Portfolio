@@ -61,7 +61,7 @@ const Contact = () => {
                             </div>
                             <div className="contact-detail-item">
                                 <span className="contact-icon">📍</span>
-                                <span>Andhra Pradesh, India</span>
+                                <span>Vijayawada, India</span>
                             </div>
                         </div>
                     </div>
