@@ -1,12 +1,28 @@
+import { motion } from 'framer-motion';
+import { Terminal } from 'lucide-react';
 import './About.css';
 
 const About = () => {
     return (
         <section id="about" className="about-section">
             <div className="container">
-                <h2 className="section-title">About Me</h2>
+                <motion.h2 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="section-title"
+                >
+                    About Me
+                </motion.h2>
 
-                <div className="about-content section-glass">
+                <motion.div 
+                    className="about-content section-glass"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8 }}
+                >
                     <div className="about-text">
                         <h3 className="text-gradient">Innovating at the Intersection of AI, Cloud & Security</h3>
                         <p>
@@ -17,30 +33,42 @@ const About = () => {
                         </p>
 
                         <div className="about-stats">
-                            <div className="stat-card">
+                            <motion.div 
+                                className="stat-card"
+                                whileHover={{ scale: 1.05 }}
+                            >
                                 <h4 className="text-gradient">3+</h4>
                                 <span>Years coding</span>
-                            </div>
-                            <div className="stat-card">
+                            </motion.div>
+                            <motion.div 
+                                className="stat-card"
+                                whileHover={{ scale: 1.05 }}
+                            >
                                 <h4 className="text-gradient">10+</h4>
                                 <span>Projects Built</span>
-                            </div>
-                            <div className="stat-card">
-                                <h4 className="text-gradient">5+</h4>
+                            </motion.div>
+                            <motion.div 
+                                className="stat-card"
+                                whileHover={{ scale: 1.05 }}
+                            >
+                                <h4 className="text-gradient">3+</h4>
                                 <span>Cloud Certs</span>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
 
                     <div className="about-image-container">
-                        <div className="about-image-wrapper">
-                            {/* Using a placeholder gradient area since we don't have a real image */}
+                        <motion.div 
+                            className="about-image-wrapper"
+                            whileHover={{ y: -5 }}
+                            transition={{ duration: 0.3 }}
+                        >
                             <div className="about-image-placeholder">
-                                <span className="hacker-icon">👨‍💻</span>
+                                <Terminal size={80} style={{ color: 'var(--accent-primary)' }} />
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

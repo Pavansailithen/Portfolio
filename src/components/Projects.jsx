@@ -1,80 +1,166 @@
+import { motion } from 'framer-motion';
+import { Github, ExternalLink, ChevronRight } from 'lucide-react';
 import './Projects.css';
 
 const Projects = () => {
     const projectsList = [
         {
-            title: 'App Compiler (SchemaForge)',
+            title: 'SchemaForge — AI Schema Generation Platform',
             bullets: [
                 'Built a 4-stage LLM pipeline (Intent Extraction → System Design → Schema Generation → Refinement) converting natural language into production-ready UI, API, DB, and Auth schemas with a Validation + Repair Engine that auto-fixes broken layers.',
-                'Implemented a runtime executability validator (0-100 score), and a 20-prompt evaluation framework, achieving 92% success rate while tracking latency and failure types across normal and edge case inputs.'
+                'Designed a runtime executability validator (0-100 score) and a 20-prompt evaluation framework achieving 92% success rate, tracking latency and failure types across normal and edge case inputs.'
             ],
             tech: ['FastAPI', 'Next.js', 'Groq API', 'Pydantic v2', 'Render', 'Vercel'],
             github: '#',
             demo: 'https://schemaforge-ai.vercel.app/',
-            icon: '🛠️'
+            terminalTitle: 'schemaforge_pipeline.json',
+            terminalContent: `{
+  "intent": "generate_user_db_and_auth",
+  "pipeline_stages": {
+    "1_intent_extraction": "COMPLETED",
+    "2_system_design": "COMPLETED",
+    "3_schema_generation": "COMPLETED",
+    "4_refinement": "COMPLETED"
+  },
+  "validation_engine": {
+    "executability_score": 98,
+    "status": "VALID",
+    "auto_repairs": 0
+  }
+}`
+        },
+        {
+            title: 'Logrix — AI Log Analysis Platform',
+            bullets: [
+                'Built a full-stack log analysis API that sends raw application logs through a Groq LLM pipeline (llama-3.3-70b-versatile) returning structured diagnostics (error summary, root cause, fix suggestion, severity, affected services) with X-API-Key authentication, Pydantic v2 validation, CORS whitelisting, and Supabase persistence.',
+                'Designed a 75/25 split layout with auto-scroll to results, live API health monitoring, and real-time clock — deployed on Vercel with environment-scoped API key injection.'
+            ],
+            tech: ['FastAPI', 'Next.js', 'Groq API', 'Supabase', 'Pydantic v2', 'Render', 'Vercel'],
+            github: '#',
+            demo: 'https://logrix.vercel.app',
+            terminalTitle: 'logrix_daemon.log',
+            terminalContent: `$ logrix --analyze logfile.log
+[CRITICAL] Database connection timeout after 5000ms.
+[DIAGNOSTICS]:
+  -> Root Cause: pool size exhaustion
+  -> Fix: Increase max connections in Supabase dashboard
+  -> Severity: High (Impacts User Auth API)
+[STATUS]: Report cached & synced to DB.`
         },
         {
             title: 'SQL Query RL Environment',
             bullets: [
-                'Built a production-ready OpenEnv-compatible RL environment where AI agents debug and optimize broken SQL queries against a live SQLite database, deployed on Hugging Face Spaces.',
+                'Built an OpenEnv-compatible RL environment where AI agents debug and optimize broken SQL queries against a live SQLite database, deployed on HuggingFace Spaces.',
                 'Designed deterministic graders across 3 difficulty tiers (Easy / Medium / Hard) with partial reward signals; baseline LLM agent scored 1.0 on all tasks in 14.8 seconds.'
             ],
             tech: ['Python', 'FastAPI', 'SQLite', 'Docker', 'Pydantic', 'HuggingFace Spaces', 'OpenAI API'],
             github: 'https://github.com/Pavansailithen/sql-query-env',
             demo: '#',
-            icon: '🤖'
-        },
-        {
-            title: 'IP to ASN Lookup Tool',
-            bullets: [
-                'Built a web app mapping any IPv4 address to its ASN, organization, and country using offline pre-processed datasets — no external API calls required.',
-                'Implemented SQLite-based IP range lookup with integer-based CIDR conversion; lightweight Flask REST API with JavaScript frontend.'
-            ],
-            tech: ['Python', 'Flask', 'SQLite', 'JavaScript'],
-            github: 'https://github.com/Pavansailithen/IP2ASN',
-            demo: '#',
-            icon: '🔍'
+            terminalTitle: 'train_rl_agent.py',
+            terminalContent: `$ python train_rl_agent.py --env SqlQueryRL-v0
+Setting environment: SQLite database (live)
+Agent initialized: PPO Policy Network
+[TRAINING]:
+  Episode 50:  Avg Reward = -0.45
+  Episode 100: Avg Reward = +0.72
+  Episode 150: Avg Reward = +1.00 (Goal Met)
+Agent execution completed in 14.8 seconds.`
         }
     ];
 
     return (
         <section id="projects" className="projects-section">
             <div className="container">
-                <h2 className="section-title">Featured Projects</h2>
+                <motion.h2 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="section-title"
+                >
+                    Featured Projects
+                </motion.h2>
 
-                <div className="projects-grid">
-                    {projectsList.map((project, index) => (
-                        <div key={index} className="project-card section-glass" data-aos="fade-up" data-aos-delay={index * 100}>
-                            <div className="project-top">
-                                <div className="project-icon">{project.icon}</div>
-                                <div className="project-links">
-                                    {project.github !== '#' && (
-                                        <a href={project.github} target="_blank" rel="noreferrer" className="project-link" aria-label="GitHub">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                        </a>
-                                    )}
-                                    {project.demo !== '#' && (
-                                        <a href={project.demo} target="_blank" rel="noreferrer" className="project-link" aria-label="Live Demo">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                        </a>
-                                    )}
+                <div className="projects-list-vertical">
+                    {projectsList.map((project, index) => {
+                        const isEven = index % 2 === 0;
+                        return (
+                            /* Inner card box for each project row */
+                            <motion.div 
+                                key={index}
+                                className="project-row-card"
+                                initial={{ opacity: 0, y: 25 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.5, delay: 0.1 * index }}
+                            >
+                                <div className={`project-row ${isEven ? 'even-row' : 'odd-row'}`}>
+                                    {/* Details Column */}
+                                    <div className="project-details-col">
+                                        <h3 className="project-row-title text-gradient">{project.title}</h3>
+                                        <ul className="project-row-bullets">
+                                            {project.bullets.map((bullet, i) => (
+                                                <li key={i} className="project-row-bullet-item">
+                                                    <ChevronRight size={16} className="bullet-chevron" />
+                                                    <span>{bullet}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <div className="project-row-tech">
+                                            {project.tech.map((item, i) => (
+                                                <span key={i} className="project-row-tech-badge">{item}</span>
+                                            ))}
+                                        </div>
+                                        <div className="project-row-links">
+                                            {project.github !== '#' && (
+                                                <motion.a 
+                                                    whileHover={{ scale: 1.05 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                    href={project.github} 
+                                                    target="_blank" 
+                                                    rel="noreferrer" 
+                                                    className="btn-outline-cyber"
+                                                >
+                                                    <Github size={16} />
+                                                    <span>Source Code</span>
+                                                </motion.a>
+                                            )}
+                                            {project.demo !== '#' && (
+                                                <motion.a 
+                                                    whileHover={{ scale: 1.05 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                    href={project.demo} 
+                                                    target="_blank" 
+                                                    rel="noreferrer" 
+                                                    className="btn-primary-cyber"
+                                                >
+                                                    <ExternalLink size={16} />
+                                                    <span>Live Demo</span>
+                                                </motion.a>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Visual/Terminal Column */}
+                                    <div className="project-visual-col">
+                                        <div className="mock-terminal">
+                                            <div className="terminal-header">
+                                                <div className="terminal-dots">
+                                                    <span className="dot dot-red"></span>
+                                                    <span className="dot dot-yellow"></span>
+                                                    <span className="dot dot-green"></span>
+                                                </div>
+                                                <span className="terminal-tab-title">{project.terminalTitle}</span>
+                                            </div>
+                                            <div className="terminal-body">
+                                                <pre><code>{project.terminalContent}</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <h3 className="project-title">{project.title}</h3>
-                            <ul className="project-bullets">
-                                {project.bullets.map((bullet, i) => (
-                                    <li key={i} className="project-bullet-item">{bullet}</li>
-                                ))}
-                            </ul>
-
-                            <div className="project-tech-stack">
-                                {project.tech.map((item, i) => (
-                                    <span key={i} className="tech-badge">{item}</span>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

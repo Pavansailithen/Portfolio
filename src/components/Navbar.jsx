@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -24,22 +25,36 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
+    <motion.nav 
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}
+    >
       <div className="container navbar-container">
-        <a href="#home" className="navbar-logo text-gradient">
+        <motion.a 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          href="#home" 
+          className="navbar-logo text-gradient"
+        >
           Lithin Pavan Sai
-        </a>
+        </motion.a>
 
         <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
-          {navLinks.map((link) => (
-            <a
+          {navLinks.map((link, index) => (
+            <motion.a
               key={link.name}
               href={link.href}
               className="nav-link"
               onClick={() => setMenuOpen(false)}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 * index }}
             >
               {link.name}
-            </a>
+            </motion.a>
           ))}
         </div>
 
@@ -55,7 +70,7 @@ const Navbar = () => {
           </div>
         </button>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

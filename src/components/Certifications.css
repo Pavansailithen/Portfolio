@@ -14,8 +14,8 @@
 
 .cert-item:hover {
     transform: translateX(10px);
-    border-left: 4px solid var(--accent-primary);
-    background: rgba(42, 42, 62, 0.8);
+    border-left: 4px solid var(--accent-secondary);
+    background: rgba(17, 24, 39, 0.9);
 }
 
 .cert-title {

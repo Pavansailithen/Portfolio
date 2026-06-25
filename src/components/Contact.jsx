@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => {
@@ -38,13 +40,46 @@ const Contact = () => {
         }
     };
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+            opacity: 1, 
+            y: 0,
+            transition: { duration: 0.5, ease: "easeOut" }
+        }
+    };
+
     return (
         <section id="contact" className="contact-section">
             <div className="container">
-                <h2 className="section-title">Get In Touch</h2>
+                <motion.h2 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="section-title"
+                >
+                    Get In Touch
+                </motion.h2>
 
-                <div className="contact-wrapper flex-container">
-                    <div className="contact-info">
+                <motion.div 
+                    className="contact-wrapper flex-container"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                >
+                    <motion.div className="contact-info" variants={itemVariants}>
                         <h3 className="contact-heading">Let's Connect</h3>
                         <p className="contact-desc">
                             Whether you have a question, a project opportunity, or just want to say hi, my inbox is always open. I'll try my best to get back to you!
@@ -52,26 +87,32 @@ const Contact = () => {
 
                         <div className="contact-details">
                             <div className="contact-detail-item">
-                                <span className="contact-icon">📧</span>
+                                <span className="contact-icon">
+                                    <Mail size={20} style={{ color: 'var(--accent-primary)' }} />
+                                </span>
                                 <a href="mailto:lithenpavansai98@gmail.com">lithenpavansai98@gmail.com</a>
                             </div>
                             <div className="contact-detail-item">
-                                <span className="contact-icon">📞</span>
+                                <span className="contact-icon">
+                                    <Phone size={20} style={{ color: 'var(--accent-primary)' }} />
+                                </span>
                                 <a href="tel:+919290108844">+91 9290108844</a>
                             </div>
                             <div className="contact-detail-item">
-                                <span className="contact-icon">📍</span>
+                                <span className="contact-icon">
+                                    <MapPin size={20} style={{ color: 'var(--accent-primary)' }} />
+                                </span>
                                 <span>Vijayawada, India</span>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="contact-form-container section-glass">
+                    <motion.div className="contact-form-container section-glass" variants={itemVariants}>
                         {submitted ? (
-                            <div className="success-message animate-fade-in" style={{ textAlign: 'center', padding: '2rem' }}>
-                                <div className="success-icon" style={{ fontSize: '3rem', marginBottom: '1rem' }}>🚀</div>
-                                <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>Thank You!</h3>
-                                <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
+                            <div className="success-message animate-fade-in" style={{ textAlign: 'center', padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                <Send size={48} style={{ color: 'var(--accent-primary)', marginBottom: '1rem' }} />
+                                <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>Thank You!</h3>
+                                <p style={{ color: 'var(--text-primary)', marginBottom: '2rem' }}>
                                     Your message has been sent successfully. I'll get back to you as soon as possible!
                                 </p>
                                 <button 
@@ -123,13 +164,19 @@ const Contact = () => {
                                     ></textarea>
                                 </div>
 
-                                <button type="submit" className="button-primary submit-btn" disabled={isSubmitting}>
+                                <motion.button 
+                                    whileHover={{ scale: 1.03 }}
+                                    whileTap={{ scale: 0.97 }}
+                                    type="submit" 
+                                    className="button-primary submit-btn" 
+                                    disabled={isSubmitting}
+                                >
                                     {isSubmitting ? 'Sending...' : 'Send Message'}
-                                </button>
+                                </motion.button>
                             </form>
                         )}
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     );
